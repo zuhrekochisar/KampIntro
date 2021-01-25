@@ -29,5 +29,15 @@ namespace GenericsIntro
             }
             items[items.Length - 1] = item;    //Dizi 0'dan başladığı için -1 oldu. Dizinin son elemanını yazdırmak için.
         }
+
+        public int Length
+        {
+            get { return items.Length; }     //ekranda 1 ve 2 görünür.
+        }
+
+        public T[] Items
+        {
+            get { return items; }
+        }
     }
 }
