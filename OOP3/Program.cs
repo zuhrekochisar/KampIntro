@@ -20,9 +20,12 @@ namespace OOP3
             konutKrediManager.Hesapla();
 
             BasvuruManager basvuruManager = new BasvuruManager();
-            //basvuruManager.BasvuruYap(ihtiyacKrediManager);
+           // basvuruManager.BasvuruYap(konutKrediManager, new DatabaseLoggerService());
+            // veya yukarda newlediğimiz için=> basvuruManager.BasvuruYap(konutKrediManager, databaseLoggerService();
+            basvuruManager.BasvuruYap(new EsnafKrediManager(), new List<ILoggerService> {new DatabaseLoggerService(), new SmsLoggerService() });
+            
 
-            List<IKrediManager> krediler = new List<IKrediManager>() {ihtiyacKrediManager };
+            List <IKrediManager> krediler = new List<IKrediManager>() {ihtiyacKrediManager, tasitKrediManager };
             //basvuruManager.KrediOnBilgilendirmesiYap(krediler);
 
         }
