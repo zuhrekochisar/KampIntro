@@ -4,6 +4,7 @@ using System.Text;
 
 namespace OOP2
     //iş sınıfları - business classess
+    //Operasyon sınıfı
 {
     class CustomerManager  //operasyon classı
     {

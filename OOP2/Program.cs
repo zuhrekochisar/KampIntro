@@ -8,6 +8,7 @@ namespace OOP2
         {
             //Zühre Koçhisar
             GercekMusteri musteri1 = new GercekMusteri();
+            musteri1.Id = 1;
             musteri1.MusteriNo = "12345";
             musteri1.Adi = "Zühre";
             musteri1.Soyadi = "Koçhisar";
@@ -16,6 +17,7 @@ namespace OOP2
             //Gerçek Müşteri - Tüzel Müşteri
             //SOLID
 
+            //Kodlama.io
             TuzelMusteri musteri2 = new TuzelMusteri();
             musteri2.Id = 2;
             musteri2.MusteriNo = "34567";
@@ -25,9 +27,9 @@ namespace OOP2
             Musteri musteri3 = new GercekMusteri();  // referans no
             Musteri musteri4 = new TuzelMusteri();
 
-            CustomerManager musteriManager = new CustomerManager();
-            musteriManager.Ekle(musteri1);
-            musteriManager.Ekle(musteri2);
+            CustomerManager customerManager = new CustomerManager();
+            customerManager.Ekle(musteri1);
+            customerManager.Ekle(musteri2);
 
         }
     }
