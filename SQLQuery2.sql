@@ -38,3 +38,39 @@ select categoryId, count(*) from Products group by CategoryID having count(*)<10
 
 select categoryId, count(*) from Products where UnitPrice>20 group by CategoryID having count(*)<10  -- sayısı 10dan küçük olan, fiyatı 20den fazla olan
 
+
+-- * kullanmadık. Çünkü tüm kolonları istemiyoruz.
+select Products.ProductID, Products.ProductName, Products.UnitPrice, Categories.CategoryName
+
+-- inner join - hem products hem de categories i bir arada getirmesi için.   -- on - durumunda, şartında anlamında
+select * from Products inner join Categories on Products.CategoryID = Categories.CategoryID 
+
+ 
+ --Kodun Birleşimi
+select Products.ProductID, Products.ProductName, Products.UnitPrice, Categories.CategoryName 
+from Products inner join Categories on Products.CategoryID = Categories.CategoryID
+--Kod Sonu
+
+--Kod Başı
+select Products.ProductID, Products.ProductName, Products.UnitPrice, Categories.CategoryName 
+from Products inner join Categories on Products.CategoryID = Categories.CategoryID
+where Products.UnitPrice>10
+--Kod Sonu
+
+--DTO- Data Transformation Object
+--inner join; iki tabloda da eşleşenleri bir araya getirir.
+
+select * from Products p inner join [Order Details] od on p.ProductID = od.ProductID  -- Order Details; boşluklu yazıldığından dolayı (hatalı yazmı) köşeli parantezli karşımıza çıkar.
+
+select * from Products p left join [Order Details] od on p.ProductID = od.ProductID  -- left = solda olup sağda olmayanları da getir demek.
+
+
+--Customers da olup Order da olmayanlar.
+select * from Customers c left join Orders o on c.CustomerID = o.CustomerID  
+where o.CustomerID is null                   --Hiç ürün almayanları bulmak için null yazdık.
+
+--right join - Sağda olup solda olmayanlar için.
+
+-- İkiden fazla tabloyu join etmek için;
+select * from Products p inner join [Order Details] od on p.ProductID = od.ProductID inner join Orders o
+on o.OrderID = od.OrderID
